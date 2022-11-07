@@ -1,6 +1,8 @@
 const searchForm = document.getElementById('searchbar-form');
 const searchInput = document.getElementById('searchbar-input');
 const addForm = document.getElementById('add-form');
+const plusButton = document.getElementById('plus');
+const openReplaceButton = document.getElementById('open-replace');
 // const addButton = document.getElementById('add-note-button');
 
 const snippets = document.getElementById('snippets');
@@ -91,13 +93,14 @@ addForm.addEventListener('submit', e => {
             console.log('Value is set to ' + data);
         });
 
-        // const snippet = document.createElement('div');
-        // snippet.innerHTML = `<pre ${mode === 'link' ? 'class="link"' : ''}><code class="language-${language}">${textAreaContent}</code></pre>`
-        // snippets.appendChild(snippet);
-        // prismHighlight();
+        const snippet = document.createElement('div');
+        snippet.innerHTML = `<h2 id="heading-${key}">${key}</h2><pre class="my-snippet ${mode === 'link' ? 'link' : ''}" id="${key}"><code class="language-${language}">${textAreaContent}</code></pre>`
+        snippets.appendChild(snippet);
+        prismHighlight();
 
     }
-    // addForm.classList.toggle('hidden');
+
+    plusButton.classList.remove('plus--active');
 });
 
 searchForm.addEventListener('submit', (e) => {
@@ -172,9 +175,6 @@ searchForm.addEventListener('submit', (e) => {
 
 
 });
-
-const plusButton = document.getElementById('plus');
-const openReplaceButton = document.getElementById('open-replace');
 
 openReplaceButton.addEventListener('click', () => {
     plusButton.classList.toggle('plus--active');

@@ -7,7 +7,7 @@
     "persistent": false
   },
   "chrome_url_overrides":{
-    "newtab": "newtab.html"
+    "newtab": "snippet.html"
   },
   "permissions": [
     "storage"
