@@ -1,0 +1,342 @@
+// site pallette
+$primary-color: #2e455a;
+$secondary-color: #748cab;
+$accent-color: #f7b801;
+$accent-color-dark: #0d1321;
+$text-color-dark: #1d2d44;
+$text-color: #f0ebd8;
+$warning-color: rgb(255, 97, 123);
+
+// syntax colors
+$base-color: #ddf0ff;
+
+$keyword-color: #e37933;
+$function-color: #06aed5;
+$special-character-color: #a8b6be;
+$comment-color: #4d5a5e;
+$string-color: #8dc149;
+$l-value-color: #cbcb41;
+$r-value-color: #a074c4;
+
+$tag-color: #8dc149;
+$attr-name-color: #f55385;
+$attr-value-color: #519aba;
+
+@mixin syntax-colors {
+    /* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript */
+    code[class*=language-],pre[class*=language-]{color:#ccc;background:0 0;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}
+}
+
+html,
+body {
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+
+    background-color: $primary-color;
+    color: $text-color;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    min-height: 100%;
+    min-width: 100%;
+
+    margin-top: 5em;
+}
+
+.searchbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    max-width: 50em;
+}
+
+input,
+textarea,
+select {
+    /* remove original border highlight */
+    outline: none;
+    border-radius: 5px;
+    border: none;
+}
+
+#searchbar-input {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    padding: 0 10px;
+    font-size: 1.5rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    box-shadow: 0 0 0 3px $accent-color;
+}
+
+form.add-snippet {
+    margin: 2em;
+    background-color: $accent-color-dark;
+    font-family: "Courier New", Courier, monospace;
+    border-radius: 5px;
+
+    span {
+        width: min-content;
+        padding: 0 0.5em;
+
+        font-size: 14px;
+
+        option {
+            background-color: $accent-color-dark;
+            color: $text-color;
+        }
+    }
+
+    .json-entry {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    input {
+        font-family: "Courier New", Courier, monospace;
+        background-color: $accent-color-dark;
+        color: $text-color;
+    }
+
+    select {
+        font-family: "Courier New", Courier, monospace;
+        background-color: $accent-color-dark;
+        color: $text-color;
+    }
+
+    textarea {
+        font-family: "Courier New", Courier, monospace;
+        background-color: $accent-color-dark;
+        color: $text-color;
+        height: 200px;
+        resize: none;
+    }
+
+    button {
+        font-family: "Courier New", Courier, monospace;
+        background-color: $accent-color-dark;
+        color: $text-color;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        padding: 0.5em 1em;
+        margin: 0.5em;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            background-color: $accent-color;
+            color: $accent-color-dark;
+        }
+    }
+}
+
+pre[class*="language-"] {
+    background-color: $accent-color-dark;
+    padding: 1em;
+    border-radius: 1em;
+    outline: none;
+
+    code[class*="language-"] {
+        @include syntax-colors;
+    }
+}
+
+pre[class*="language-"]:focus {
+    box-shadow: 0 0 0 3px $accent-color;
+}
+
+#snippets {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding: 1em;
+    max-width: 80em;
+}
+
+$speed: 0.5s;
+
+.copied-notification {
+    opacity: 1;
+    outline: 0;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: 1px;
+    display: inline-block;
+
+    &.show {
+        &:after {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+        }
+
+        &:before {
+            opacity: 0;
+            transform: translateY(50%) rotateX(90deg);
+        }
+    }
+
+    &:after {
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        color: #fff;
+        display: block;
+        transition: $speed;
+        position: absolute;
+        background: $accent-color-dark;
+        content: attr(data-back);
+        transform: translateY(-50%) rotateX(90deg);
+    }
+}
+
+.add-snippet {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+
+    // blur box shadow
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+
+    &.hidden {
+        display: none;
+    }
+
+    padding: 1em;
+
+    * {
+        width: 20em;
+    }
+}
+
+#add-note-button {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background-color: $accent-color;
+    color: $text-color;
+    // padding: 1em;
+    font-size: 2em;
+
+    outline: none;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background-color: $accent-color-dark;
+    }
+}
+
+.delete-storage {
+    background-color: $warning-color;
+    color: $text-color;
+
+    margin: 1em;
+    padding: 0.5em;
+    border-radius: 2em;
+    border: none;
+    outline: none;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0 0 0 3px $accent-color;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.plus {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+
+    width: 80px;
+    transition: all 0.3s ease 0s;
+    height: 80px;
+    background: $accent-color;
+    border-radius: 50%;
+    display: flex;
+    &__line {
+        width: 6px;
+        height: 50px;
+        background: $text-color-dark;
+        border-radius: 10px;
+        position: absolute;
+        left: calc(50% - 3px);
+        top: calc(50% - 25px);
+        &--h {
+            transform: rotate(90deg);
+        }
+        &--v {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            overflow: hidden;
+            transition: all 0.4s ease 0s;
+        }
+    }
+
+    #open-replace {
+        z-index: 1;
+        cursor: pointer;
+        background: transparent;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        transition: all 0.3s ease 0s;
+    }
+
+    &--active {
+        height: 32px;
+        border-radius: 30px;
+
+        .plus__line--v {
+            height: 400px;
+            width: 400px;
+            // padding: 0 5px;
+            // box-sizing: border-box;
+            border-radius: 10px;
+
+            top: calc(50% - 440px);
+            left: calc(50% - 440px);
+        }
+
+        #open-replace {
+            height: 32px;
+            border-radius: 30px;
+        }
+    }
+}

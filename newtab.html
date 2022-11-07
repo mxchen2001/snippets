@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snippets</title>
+  <meta charset="utf-8">
+  <link href="index.css" rel="stylesheet" />
+  <script src="./script.js" defer></script>
+</head>
+
+<body class="dark">
+  <main class="main">
+    <nav class="copied-notification" data-back="Copied" data-front=""></nav>
+
+    <!-- searchbar -->
+    <form id="searchbar-form" class="searchbar">
+      <input id="searchbar-input" type="text" placeholder="Search for a note..." autofocus>
+    </form>
+
+    <!-- dummy snippet -->
+    <div id="snippets"></div>
+
+    <!-- add new entry button -->
+    <div class="plus" id="plus">
+      <div class="plus__line plus__line--v">
+        
+        <form id="add-form" class="add-snippet">
+          <div class="json-entry">
+            <span>key:</span><input id="key-input" type="text" placeholder="Add a new note..." autofocus>
+          </div>
+          <div class="json-entry">
+            <span>language:</span>
+            <select name="languages" id="language-select">
+              <option value="plain">Plain Text</option>
+              <option value="link">Link</option>
+              <option value="python">Python</option>
+              <option value="c-like">C/C++</option>
+              <option value="java">Java</option>
+              <option value="javascript">Javascript</option>
+              <option value="css">CSS</option>
+            </select>
+          </div>
+    
+          <div class="json-entry">
+            <span>value:</span><textarea id="add-textarea" placeholder="Add a description..."></textarea>
+          </div>
+    
+          <button type="submit" id="add-button">Add</button>
+        </form>
+
+
+      </div>
+      <div class="plus__line plus__line--h"></div>
+
+      <div id="open-replace"></div>
+    </div>
+
+    <!-- clear storage button -->
+    <button tabindex="-1" id="delete-storage" class="delete-storage hidden">Clear All?</button>
+
+  </main>
+  <script src="app.js"></script>
+  <script src="./prism.js"></script>
+</body>
+</html>

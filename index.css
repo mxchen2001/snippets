@@ -1,0 +1,342 @@
+html,
+body {
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  background-color: #2e455a;
+  color: #f0ebd8;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100%;
+  min-width: 100%;
+  margin-top: 5em;
+}
+
+.searchbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  max-width: 50em;
+}
+
+input,
+textarea,
+select {
+  /* remove original border highlight */
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+
+#searchbar-input {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  padding: 0 10px;
+  font-size: 1.5rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 3px #f7b801;
+}
+
+form.add-snippet {
+  margin: 2em;
+  background-color: #0d1321;
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 5px;
+}
+form.add-snippet span {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  padding: 0 0.5em;
+  font-size: 14px;
+}
+form.add-snippet span option {
+  background-color: #0d1321;
+  color: #f0ebd8;
+}
+form.add-snippet .json-entry {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+form.add-snippet input {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #0d1321;
+  color: #f0ebd8;
+}
+form.add-snippet select {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #0d1321;
+  color: #f0ebd8;
+}
+form.add-snippet textarea {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #0d1321;
+  color: #f0ebd8;
+  height: 200px;
+  resize: none;
+}
+form.add-snippet button {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #0d1321;
+  color: #f0ebd8;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+  cursor: pointer;
+}
+form.add-snippet button:hover, form.add-snippet button:focus {
+  background-color: #f7b801;
+  color: #0d1321;
+}
+
+pre[class*=language-] {
+  background-color: #0d1321;
+  padding: 1em;
+  border-radius: 1em;
+  outline: none;
+}
+pre[class*=language-] code[class*=language-] {
+  /* PrismJS 1.29.0
+  https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript */
+}
+pre[class*=language-] code[class*=language-] code[class*=language-], pre[class*=language-] code[class*=language-] pre[class*=language-] {
+  color: #ccc;
+  background: 0 0;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*=language-] code[class*=language-] pre[class*=language-] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+pre[class*=language-] code[class*=language-] :not(pre) > code[class*=language-], pre[class*=language-] code[class*=language-] pre[class*=language-] {
+  background: #2d2d2d;
+}
+pre[class*=language-] code[class*=language-] :not(pre) > code[class*=language-] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+pre[class*=language-] code[class*=language-] .token.block-comment, pre[class*=language-] code[class*=language-] .token.cdata, pre[class*=language-] code[class*=language-] .token.comment, pre[class*=language-] code[class*=language-] .token.doctype, pre[class*=language-] code[class*=language-] .token.prolog {
+  color: #999;
+}
+pre[class*=language-] code[class*=language-] .token.punctuation {
+  color: #ccc;
+}
+pre[class*=language-] code[class*=language-] .token.attr-name, pre[class*=language-] code[class*=language-] .token.deleted, pre[class*=language-] code[class*=language-] .token.namespace, pre[class*=language-] code[class*=language-] .token.tag {
+  color: #e2777a;
+}
+pre[class*=language-] code[class*=language-] .token.function-name {
+  color: #6196cc;
+}
+pre[class*=language-] code[class*=language-] .token.boolean, pre[class*=language-] code[class*=language-] .token.function, pre[class*=language-] code[class*=language-] .token.number {
+  color: #f08d49;
+}
+pre[class*=language-] code[class*=language-] .token.class-name, pre[class*=language-] code[class*=language-] .token.constant, pre[class*=language-] code[class*=language-] .token.property, pre[class*=language-] code[class*=language-] .token.symbol {
+  color: #f8c555;
+}
+pre[class*=language-] code[class*=language-] .token.atrule, pre[class*=language-] code[class*=language-] .token.builtin, pre[class*=language-] code[class*=language-] .token.important, pre[class*=language-] code[class*=language-] .token.keyword, pre[class*=language-] code[class*=language-] .token.selector {
+  color: #cc99cd;
+}
+pre[class*=language-] code[class*=language-] .token.attr-value, pre[class*=language-] code[class*=language-] .token.char, pre[class*=language-] code[class*=language-] .token.regex, pre[class*=language-] code[class*=language-] .token.string, pre[class*=language-] code[class*=language-] .token.variable {
+  color: #7ec699;
+}
+pre[class*=language-] code[class*=language-] .token.entity, pre[class*=language-] code[class*=language-] .token.operator, pre[class*=language-] code[class*=language-] .token.url {
+  color: #67cdcc;
+}
+pre[class*=language-] code[class*=language-] .token.bold, pre[class*=language-] code[class*=language-] .token.important {
+  font-weight: 700;
+}
+pre[class*=language-] code[class*=language-] .token.italic {
+  font-style: italic;
+}
+pre[class*=language-] code[class*=language-] .token.entity {
+  cursor: help;
+}
+pre[class*=language-] code[class*=language-] .token.inserted {
+  color: green;
+}
+
+pre[class*=language-]:focus {
+  box-shadow: 0 0 0 3px #f7b801;
+}
+
+#snippets {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 1em;
+  max-width: 80em;
+}
+
+.copied-notification {
+  opacity: 1;
+  outline: 0;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+.copied-notification.show:after {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+.copied-notification.show:before {
+  opacity: 0;
+  transform: translateY(50%) rotateX(90deg);
+}
+.copied-notification:after {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  color: #fff;
+  display: block;
+  transition: 0.5s;
+  position: absolute;
+  background: #0d1321;
+  content: attr(data-back);
+  transform: translateY(-50%) rotateX(90deg);
+}
+
+.add-snippet {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+  padding: 1em;
+}
+.add-snippet.hidden {
+  display: none;
+}
+.add-snippet * {
+  width: 20em;
+}
+
+#add-note-button {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background-color: #f7b801;
+  color: #f0ebd8;
+  font-size: 2em;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+#add-note-button:hover, #add-note-button:focus {
+  background-color: #0d1321;
+}
+
+.delete-storage {
+  background-color: rgb(255, 97, 123);
+  color: #f0ebd8;
+  margin: 1em;
+  padding: 0.5em;
+  border-radius: 2em;
+  border: none;
+  outline: none;
+}
+.delete-storage:hover, .delete-storage:focus {
+  box-shadow: 0 0 0 3px #f7b801;
+}
+.delete-storage.hidden {
+  display: none;
+}
+
+.plus {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  width: 80px;
+  transition: all 0.3s ease 0s;
+  height: 80px;
+  background: #f7b801;
+  border-radius: 50%;
+  display: flex;
+}
+.plus__line {
+  width: 6px;
+  height: 50px;
+  background: #1d2d44;
+  border-radius: 10px;
+  position: absolute;
+  left: calc(50% - 3px);
+  top: calc(50% - 25px);
+}
+.plus__line--h {
+  transform: rotate(90deg);
+}
+.plus__line--v {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+  transition: all 0.4s ease 0s;
+}
+.plus #open-replace {
+  z-index: 1;
+  cursor: pointer;
+  background: transparent;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  transition: all 0.3s ease 0s;
+}
+.plus--active {
+  height: 32px;
+  border-radius: 30px;
+}
+.plus--active .plus__line--v {
+  height: 400px;
+  width: 400px;
+  border-radius: 10px;
+  top: calc(50% - 440px);
+  left: calc(50% - 440px);
+}
+.plus--active #open-replace {
+  height: 32px;
+  border-radius: 30px;
+}/*# sourceMappingURL=index.css.map */
